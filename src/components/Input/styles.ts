@@ -11,24 +11,37 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   position: absolute;
-  top: 0.25rem;
-  left: 0.75rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   font-size: 2rem;
-  color: #090909;
+  color: #261815;
 
   transition: all 0.25s;
   cursor: text;
 
   &.isFocused {
-    top: -1.25rem;
-    left: 0.5rem;
+    top: -35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+
+    font-size: 1.5rem;
+    color: #dadada;
+  }
+
+  &.isFilled {
+    top: -35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
 
     font-size: 1.5rem;
   }
 `;
 
 export const Input = styled.input`
+  position: relative;
+
   padding: 0.5rem 1rem;
 
   width: 100%;
@@ -37,10 +50,15 @@ export const Input = styled.input`
   font-size: 2rem;
 
   border: none;
-  border-bottom: 0.3rem solid #4a0e40;
+  border-bottom: 0.3rem solid #261815;
   background: transparent;
+  color: #261815;
 
   transition: all 0.25s;
-
+  text-align: center;
   outline: none;
+
+  &:focus {
+    border-bottom-color: #dadada;
+  }
 `;

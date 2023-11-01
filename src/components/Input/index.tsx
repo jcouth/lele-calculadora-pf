@@ -22,15 +22,21 @@ const Input = ({ id, label, onFocus, onBlur, onChange }: Props) => {
   };
 
   const handleBlur = () => {
-    if (!inputRef.current?.value) {
-      labelRef.current?.classList.remove('isFocused');
-      if (onBlur) {
-        onBlur();
-      }
+    labelRef.current?.classList.remove('isFocused');
+
+    if (inputRef.current?.value) {
+      labelRef.current?.classList.add('isFilled');
+    } else {
+      labelRef.current?.classList.remove('isFilled');
+    }
+
+    if (onBlur) {
+      onBlur();
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
     onChange(e.target.value);
   };
 
@@ -45,6 +51,7 @@ const Input = ({ id, label, onFocus, onBlur, onChange }: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
+        maxLength={1}
       />
     </S.Container>
   );
