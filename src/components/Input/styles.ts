@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   position: absolute;
-  top: 0.675rem;
+  top: 0.25rem;
   left: 0.75rem;
 
   font-size: 2rem;
