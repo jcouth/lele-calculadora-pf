@@ -1,88 +1,94 @@
 import React, { useState } from 'react';
 
-import * as S from './styles';
-import Input from './components/Input';
+import ControlButton from './components/ControlButton';
 import SubmitButton from './components/SubmitButton';
+import Input from './components/Input';
+
+import * as S from './styles';
 
 interface ExsProps {
   id: string;
   label: string;
+  value?: string;
 }
 
-const inputs: Array<ExsProps> = [
-  {
-    id: 'ex1',
-    label: 'E1',
-  },
-  {
-    id: 'ex2',
-    label: 'E2',
-  },
-  {
-    id: 'ex3',
-    label: 'E3',
-  },
-  {
-    id: 'ex4',
-    label: 'E4',
-  },
-  {
-    id: 'ex5',
-    label: 'E5',
-  },
-];
-
 const App = () => {
-  const [exs, setExs] = useState<Record<ExsProps['id'], ExsProps['label']>>({});
-  const [disabled, setDisabled] = useState<boolean>(true);
+  const [exs, setExs] = useState<Array<ExsProps>>([]);
 
   const round = (value: number): string => {
     return (Math.round(value * 100) / 100).toFixed(2);
   };
 
+  const handleAdd = () => {
+    const { length } = exs;
+    setExs((oldState) =>
+      oldState.concat({
+        id: `ex${length + 1}`,
+        label: `E${length + 1}`,
+      })
+    );
+  };
+
+  const handleRemove = () => {
+    const newExs = [...exs];
+    newExs.pop();
+    setExs(newExs);
+  };
+
   const handleChange = (value: string, id: string) => {
-    // const newExs = [...exs, ];
-    setExs((oldState) => ({
-      ...oldState,
-      [id]: value,
-    }));
-    // setDisabled(exs);
+    setExs((oldState) =>
+      oldState.map((current) => {
+        if (current.id === id) {
+          return {
+            ...current,
+            value,
+          };
+        }
+        return current;
+      })
+    );
   };
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const ME = Object.values(exs).reduce(
-      (accumulator, current) => accumulator + Number(current),
-      0
+    if (exs.find((current) => current.value === undefined)) {
+      alert('Não é número');
+      return;
+    }
+
+    const ME = Number(
+      round(
+        exs.reduce(
+          (accumulator, current) => accumulator + Number(current.value),
+          0
+        ) / exs.length
+      )
     );
-    // if (Number.isNaN(numberME)) {
-    //   throw new Error('Não é número');
-    // }
-    // setPF(round(15 - 2 * numberME));
-    // setMF(round((2 * numberME + Number(round(15 - 2 * numberME))) / 3));
+    const PF = Number(round(15 - 2 * ME));
+
+    alert(`ME: ${ME} || PF: ${PF}`);
   };
 
   return (
     <S.Container>
       <S.Form onSubmit={handleSubmit}>
         <S.InputsWrapper>
-          {inputs.map(({ id, label }) => (
+          {exs.map(({ id, label }) => (
             <Input
+              key={id}
               id={id}
               label={label}
               onChange={(value) => handleChange(value, id)}
             />
           ))}
         </S.InputsWrapper>
-        <SubmitButton disabled={disabled}>Calcular</SubmitButton>
+        <S.ControlsWrapper>
+          <ControlButton onClick={handleRemove}>-</ControlButton>
+          <ControlButton onClick={handleAdd}>+</ControlButton>
+          <SubmitButton>Calcular</SubmitButton>
+        </S.ControlsWrapper>
       </S.Form>
-      {/* {pf !== null && (
-        <>
-          <S.Result>Você precisa tirar ao menos {pf} na prova final</S.Result>
-          <S.Result>Para ter uma média final de {mf}</S.Result>
-        </>
-      )} */}
     </S.Container>
   );
 };
