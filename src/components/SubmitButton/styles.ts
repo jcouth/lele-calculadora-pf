@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Button = styled.button.attrs({
   type: 'submit',
 })`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   padding: 0.75rem 1.25rem;
 
   width: 100%;
