@@ -4,7 +4,7 @@ import * as S from './styles';
 
 interface Props {
   children: string;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 const SubmitButton = ({ children, disabled }: Props) => {
