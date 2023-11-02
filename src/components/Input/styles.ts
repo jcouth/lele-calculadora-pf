@@ -39,7 +39,9 @@ export const Label = styled.label`
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input.attrs({
+  type: 'number',
+})`
   position: relative;
 
   padding: 0.5rem;
@@ -60,5 +62,14 @@ export const Input = styled.input`
 
   &:focus {
     border-bottom-color: #dadada;
+  }
+
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;

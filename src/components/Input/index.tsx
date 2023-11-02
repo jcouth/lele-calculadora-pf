@@ -37,17 +37,7 @@ const Input = ({ id, label, onFocus, onBlur, onChange }: Props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const formatted = (Math.round(Number(e.target.value) * 100) / 100).toFixed(
-      2
-    );
-    e.target.value = formatted;
-    onChange(formatted);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (/[\D]/g.test(e.key)) {
-      e.preventDefault();
-    }
+    onChange(e.target.value);
   };
 
   return (
@@ -61,7 +51,6 @@ const Input = ({ id, label, onFocus, onBlur, onChange }: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
       />
     </S.Container>
   );
