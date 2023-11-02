@@ -42,7 +42,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   position: relative;
 
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
 
   width: 100%;
   height: 100%;
