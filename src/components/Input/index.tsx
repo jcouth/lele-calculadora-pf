@@ -1,14 +1,7 @@
 import React, { useRef } from 'react';
 
+import { Props } from './Input';
 import * as S from './styles';
-
-interface Props {
-  id: string;
-  label: string;
-  onFocus?(): void;
-  onBlur?(): void;
-  onChange(text: string): void;
-}
 
 const Input = ({ id, label, onFocus, onBlur, onChange }: Props) => {
   const labelRef = useRef<HTMLLabelElement>(null);
