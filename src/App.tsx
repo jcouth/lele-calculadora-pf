@@ -60,8 +60,9 @@ const App = () => {
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (ex.find((current) => current.value === undefined)) {
-      alert('Não é número');
+    const finded = ex.find(({ value }) => value === undefined);
+    if (finded) {
+      alert(`${finded.label} não foi preenchido!`);
       return;
     }
 
