@@ -100,7 +100,7 @@ const App = () => {
           </Button>
           <Button onClick={handleAdd}>+</Button>
         </S.ControlsWrapper>
-        <Button isSubmit disabled={!ex.length}>
+        <Button type='submit' disabled={!ex.length}>
           Calcular
         </Button>
         {result && (
