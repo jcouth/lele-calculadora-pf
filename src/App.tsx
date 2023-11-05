@@ -43,7 +43,7 @@ const App = () => {
     setEx(newEx);
   };
 
-  const handleChange = (value: string, id: string) => {
+  const handleChange = (id: string, value: string) => {
     setEx((oldState) =>
       oldState.map((current) => {
         if (current.id === id) {
@@ -90,7 +90,7 @@ const App = () => {
               key={id}
               id={id}
               label={label}
-              onChange={(value) => handleChange(value, id)}
+              onChange={(value) => handleChange(id, value)}
             />
           ))}
         </S.InputsWrapper>
