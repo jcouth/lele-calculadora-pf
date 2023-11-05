@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { ButtonProps } from './Button';
+import { Styles } from './Button';
 
-export const Button = styled.button.attrs<ButtonProps>(({ isSubmit }) => ({
+export const Button = styled.button.attrs<Styles.Button>(({ isSubmit }) => ({
   type: isSubmit ? 'submit' : 'button',
-}))<ButtonProps>`
+}))<Styles.Button>`
   display: flex;
   justify-content: center;
   align-items: center;
