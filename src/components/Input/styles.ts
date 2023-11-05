@@ -39,9 +39,7 @@ export const Label = styled.label`
   }
 `;
 
-export const Input = styled.input.attrs({
-  type: 'number',
-})`
+export const Input = styled.input`
   position: relative;
 
   padding: 0.5rem;
