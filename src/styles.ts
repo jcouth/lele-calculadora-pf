@@ -17,39 +17,41 @@ export const Container = styled.div`
 
   background-color: #caaf9f;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+  @media (min-width: 800px) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    width: 100%;
-    height: 100%;
+      width: 100%;
+      height: 100%;
 
-    background-image: ${`url(${PeterJPG})`};
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+      background-image: ${`url(${PeterJPG})`};
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
 
-    opacity: 0.5;
-    pointer-events: none;
-  }
+      opacity: 0.5;
+      pointer-events: none;
+    }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    width: 100%;
-    height: 100%;
+      width: 100%;
+      height: 100%;
 
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 255, 0) 0%,
-      #caaf9f 70%,
-      #caaf9f 100%
-    );
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0) 0%,
+        #caaf9f 70%,
+        #caaf9f 100%
+      );
+    }
   }
 `;
 
@@ -65,6 +67,10 @@ export const Form = styled.form.attrs({
   display: grid;
   grid-template-rows: repeat(2, auto);
   row-gap: 2rem;
+
+  @media (min-width: 800px) {
+    zoom: 1.5;
+  }
 `;
 
 export const InputsWrapper = styled.div`
@@ -72,6 +78,10 @@ export const InputsWrapper = styled.div`
   grid-template-columns: repeat(3, 6rem);
   row-gap: 2rem;
   column-gap: 2rem;
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(5, 6rem);
+  }
 `;
 
 export const ControlsWrapper = styled(InputsWrapper)`
