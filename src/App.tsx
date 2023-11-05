@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 
-import ControlButton from './components/ControlButton';
-import SubmitButton from './components/SubmitButton';
+import Button from './components/Button';
 import Input from './components/Input';
 
 import * as S from './styles';
 
-interface ExsProps {
+interface ExProps {
   id: string;
   label: string;
   value?: string;
 }
 
+interface ResultProps {
+  me: number;
+  pf: number;
+}
+
 const App = () => {
-  const [exs, setExs] = useState<Array<ExsProps>>([]);
+  const [ex, setEx] = useState<Array<ExProps>>([]);
+  const [result, setResult] = useState<ResultProps | null>(null);
 
   const round = (value: number): string => {
     return (Math.round(value * 100) / 100).toFixed(2);
   };
 
   const handleAdd = () => {
-    const { length } = exs;
-    setExs((oldState) =>
+    const { length } = ex;
+    setEx((oldState) =>
       oldState.concat({
         id: `ex${length + 1}`,
         label: `E${length + 1}`,
@@ -30,13 +35,16 @@ const App = () => {
   };
 
   const handleRemove = () => {
-    const newExs = [...exs];
-    newExs.pop();
-    setExs(newExs);
+    const newEx = [...ex];
+    newEx.pop();
+    if (!newEx.length) {
+      setResult(null);
+    }
+    setEx(newEx);
   };
 
   const handleChange = (value: string, id: string) => {
-    setExs((oldState) =>
+    setEx((oldState) =>
       oldState.map((current) => {
         if (current.id === id) {
           return {
@@ -52,29 +60,32 @@ const App = () => {
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (exs.find((current) => current.value === undefined)) {
+    if (ex.find((current) => current.value === undefined)) {
       alert('Não é número');
       return;
     }
 
-    const ME = Number(
+    const finalME = Number(
       round(
-        exs.reduce(
+        ex.reduce(
           (accumulator, current) => accumulator + Number(current.value),
           0
-        ) / exs.length
+        ) / ex.length
       )
     );
-    const PF = Number(round(15 - 2 * ME));
+    const finalPF = Number(round(15 - 2 * finalME));
 
-    alert(`ME: ${ME} || PF: ${PF}`);
+    setResult({
+      me: finalME,
+      pf: finalPF,
+    });
   };
 
   return (
     <S.Container>
       <S.Form onSubmit={handleSubmit}>
-        <S.Wrapper>
-          {exs.map(({ id, label }) => (
+        <S.InputsWrapper>
+          {ex.map(({ id, label }) => (
             <Input
               key={id}
               id={id}
@@ -82,12 +93,22 @@ const App = () => {
               onChange={(value) => handleChange(value, id)}
             />
           ))}
-        </S.Wrapper>
-        <S.Wrapper>
-          <ControlButton onClick={handleRemove}>-</ControlButton>
-          <ControlButton onClick={handleAdd}>+</ControlButton>
-          <SubmitButton>Calcular</SubmitButton>
-        </S.Wrapper>
+        </S.InputsWrapper>
+        <S.ControlsWrapper>
+          <Button disabled={!ex.length} onClick={handleRemove}>
+            -
+          </Button>
+          <Button onClick={handleAdd}>+</Button>
+        </S.ControlsWrapper>
+        <Button isSubmit disabled={!ex.length}>
+          Calcular
+        </Button>
+        {result && (
+          <S.ResultWrapper>
+            <S.Result>ME: {result.me}</S.Result>
+            <S.Result>PF: {result.pf}</S.Result>
+          </S.ResultWrapper>
+        )}
       </S.Form>
     </S.Container>
   );

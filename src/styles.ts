@@ -24,9 +24,25 @@ export const Form = styled.form.attrs({
   row-gap: 2rem;
 `;
 
-export const Wrapper = styled.div`
+export const InputsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 6rem);
   row-gap: 2rem;
   column-gap: 2rem;
+`;
+
+export const ControlsWrapper = styled(InputsWrapper)`
+  grid-template-columns: repeat(2, auto);
+  row-gap: unset;
+`;
+
+export const ResultWrapper = styled.div`
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+
+  text-align: center;
+`;
+
+export const Result = styled.p`
+  font-size: 22px;
 `;
