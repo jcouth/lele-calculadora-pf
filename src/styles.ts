@@ -24,16 +24,9 @@ export const Form = styled.form.attrs({
   row-gap: 2rem;
 `;
 
-export const InputsWrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 6rem);
+  grid-template-columns: repeat(3, 6rem);
   row-gap: 2rem;
-  column-gap: 2rem;
-`;
-
-export const ControlsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 6rem) auto;
-  grid-template-rows: 3rem;
   column-gap: 2rem;
 `;

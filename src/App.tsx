@@ -73,7 +73,7 @@ const App = () => {
   return (
     <S.Container>
       <S.Form onSubmit={handleSubmit}>
-        <S.InputsWrapper>
+        <S.Wrapper>
           {exs.map(({ id, label }) => (
             <Input
               key={id}
@@ -82,12 +82,12 @@ const App = () => {
               onChange={(value) => handleChange(value, id)}
             />
           ))}
-        </S.InputsWrapper>
-        <S.ControlsWrapper>
+        </S.Wrapper>
+        <S.Wrapper>
           <ControlButton onClick={handleRemove}>-</ControlButton>
           <ControlButton onClick={handleAdd}>+</ControlButton>
           <SubmitButton>Calcular</SubmitButton>
-        </S.ControlsWrapper>
+        </S.Wrapper>
       </S.Form>
     </S.Container>
   );
