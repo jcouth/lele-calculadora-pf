@@ -63,9 +63,9 @@ const App = () => {
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const finded = ex.find(({ value }) => value === undefined);
-    if (finded) {
-      alert(`${finded.label} não foi preenchido!`);
+    const invalidEx = ex.find(({ value }) => Number.isNaN(Number(value)));
+    if (invalidEx) {
+      alert(`${invalidEx.label} não é valido!`);
       return;
     }
 
