@@ -32,15 +32,18 @@ const App = () => {
         label: `E${length + 1}`,
       })
     );
+    if (result) {
+      setResult(null);
+    }
   };
 
   const handleRemove = () => {
     const newEx = [...ex];
     newEx.pop();
-    if (!newEx.length) {
+    setEx(newEx);
+    if (result) {
       setResult(null);
     }
-    setEx(newEx);
   };
 
   const handleChange = (id: string, value: string) => {
