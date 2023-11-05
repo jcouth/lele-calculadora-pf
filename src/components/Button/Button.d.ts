@@ -1,16 +1,10 @@
-export namespace Styles {
-  export interface Button {
-    isSubmit: boolean | undefined;
-  }
-}
-
 type ButtonTypes =
   | {
-      isSubmit?: boolean;
+      type?: 'button' | 'reset';
       onClick(): void;
     }
   | {
-      isSubmit: boolean;
+      type: 'submit';
       onClick?(): void;
     };
 

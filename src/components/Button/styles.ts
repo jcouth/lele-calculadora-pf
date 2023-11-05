@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-import { Styles } from './Button';
-
-export const Button = styled.button.attrs<Styles.Button>(({ isSubmit }) => ({
-  type: isSubmit ? 'submit' : 'button',
-}))<Styles.Button>`
+export const Button = styled.button.attrs(({ type }) => ({
+  type: type ?? 'button',
+}))`
   display: flex;
   justify-content: center;
   align-items: center;
