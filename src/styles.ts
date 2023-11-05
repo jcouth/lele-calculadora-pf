@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 32px;
+  font-size: 3.2rem;
 `;
 
 export const Form = styled.form.attrs({
@@ -44,5 +44,5 @@ export const ResultWrapper = styled.div`
 `;
 
 export const Result = styled.p`
-  font-size: 22px;
+  font-size: 2.2rem;
 `;
