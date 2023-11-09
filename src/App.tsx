@@ -79,7 +79,7 @@ const App = () => {
       )
     );
     const finalPF = Number(round(15 - 2 * finalME));
-    const finalMF = finalME >= 8 ? finalME : (finalME * 2) / 3;
+    const finalMF = Number(round(finalME >= 8 ? finalME : (finalME * 2) / 3));
 
     setResult({
       me: finalME,
