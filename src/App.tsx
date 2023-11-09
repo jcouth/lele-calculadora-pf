@@ -13,6 +13,7 @@ interface ExProps {
 
 interface ResultProps {
   me: number;
+  mf: number;
   pf: number;
 }
 
@@ -78,9 +79,11 @@ const App = () => {
       )
     );
     const finalPF = Number(round(15 - 2 * finalME));
+    const finalMF = (finalME * 2 + finalPF) / 3;
 
     setResult({
       me: finalME,
+      mf: finalMF,
       pf: finalPF,
     });
   };
@@ -110,6 +113,7 @@ const App = () => {
         {result && (
           <S.ResultWrapper>
             <S.Result>ME: {result.me}</S.Result>
+            <S.Result>MF: {result.mf}</S.Result>
             <S.Result>PF: {result.pf}</S.Result>
           </S.ResultWrapper>
         )}
