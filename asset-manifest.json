@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/lele-calculadora-pf/static/css/main.2384b6a0.css",
-    "main.js": "/lele-calculadora-pf/static/js/main.a8619b75.js",
+    "main.js": "/lele-calculadora-pf/static/js/main.6e569043.js",
     "static/js/787.755ac1e5.chunk.js": "/lele-calculadora-pf/static/js/787.755ac1e5.chunk.js",
     "static/media/peter.jpg": "/lele-calculadora-pf/static/media/peter.fc179b3a4923b6255683.jpg",
     "index.html": "/lele-calculadora-pf/index.html",
     "main.2384b6a0.css.map": "/lele-calculadora-pf/static/css/main.2384b6a0.css.map",
-    "main.a8619b75.js.map": "/lele-calculadora-pf/static/js/main.a8619b75.js.map",
+    "main.6e569043.js.map": "/lele-calculadora-pf/static/js/main.6e569043.js.map",
     "787.755ac1e5.chunk.js.map": "/lele-calculadora-pf/static/js/787.755ac1e5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2384b6a0.css",
-    "static/js/main.a8619b75.js"
+    "static/js/main.6e569043.js"
   ]
 }
