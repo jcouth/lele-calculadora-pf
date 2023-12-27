@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { Props } from './Label';
 import * as S from './styles';
 
-const Label = ({ id, children, ...rest }: Props) => (
-  <S.Label htmlFor={id} {...rest}>
-    {children}
-  </S.Label>
+const Label = forwardRef<HTMLLabelElement, Props>(
+  ({ id, children, ...rest }, ref) => (
+    <S.Label ref={ref} htmlFor={id} {...rest}>
+      {children}
+    </S.Label>
+  )
 );
 
 export default Label;
