@@ -16,7 +16,7 @@ export const Button = styled.button<Styles.Button>`
   opacity: 1;
   cursor: pointer;
   font-size: 16px;
-  color: white;
+  color: #f0f0f0;
 
   &:disabled {
     opacity: 0.5;
