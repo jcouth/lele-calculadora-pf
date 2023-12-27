@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent } from 'react';
+import { ChangeEvent, FocusEvent, HTMLProps } from 'react';
 
 export type OnChangeProps = ChangeEvent<HTMLInputElement>;
 
@@ -9,4 +9,4 @@ export type Props = {
   onChange(value: string): void;
   onFocus(value: string): void;
   onBlur(value: string): void;
-};
+} & HTMLProps<HTMLDivElement>;
