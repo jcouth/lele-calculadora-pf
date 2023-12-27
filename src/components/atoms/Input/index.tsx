@@ -8,3 +8,5 @@ const Input = ({ id, onChange, ...rest }: Props) => {
 };
 
 export default Input;
+
+export type { Props as InputProps };
