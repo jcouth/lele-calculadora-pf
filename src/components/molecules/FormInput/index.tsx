@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { OnChangeProps, OnFocusProps, Props } from './FormInput';
 import * as S from './styles';
 
-const FormInput = ({ label, onChange, onFocus, onBlur }: Props) => {
+const FormInput = ({ label, onChange, onFocus, onBlur, ...rest }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const labelRef = useRef<HTMLLabelElement>(null);
 
@@ -35,7 +35,7 @@ const FormInput = ({ label, onChange, onFocus, onBlur }: Props) => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper {...rest}>
       <S.Label ref={labelRef} htmlFor={label}>
         {label}
       </S.Label>
