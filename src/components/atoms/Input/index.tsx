@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { Props } from './Input';
 import * as S from './styles';
 
-const Input = ({ id, onChange, ...rest }: Props) => {
-  return <S.Input id={id} onChange={onChange} {...rest} />;
-};
+const Input = forwardRef<HTMLInputElement, Props>(
+  ({ id, onChange, ...rest }, ref) => (
+    <S.Input ref={ref} id={id} onChange={onChange} {...rest} />
+  )
+);
 
 export default Input;
 
