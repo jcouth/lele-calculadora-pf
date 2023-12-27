@@ -9,4 +9,4 @@ export type Props = {
   onChange(value: string): void;
   onFocus(value: string): void;
   onBlur(value: string): void;
-} & HTMLProps<HTMLDivElement>;
+} & Omit<HTMLProps<HTMLDivElement>, 'onChange' | 'onFocus' | 'onBlur'>;
