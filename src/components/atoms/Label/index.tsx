@@ -10,3 +10,5 @@ const Label = ({ id, children, ...rest }: Props) => (
 );
 
 export default Label;
+
+export type { Props as LabelProps };
